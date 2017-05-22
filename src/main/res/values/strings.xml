@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Weather</string>
+    <string name="dushu">5°</string>
+    <string name="location">北京</string>
+    <string name="wind">西风</string>
+    <string name="windlevel">7-8级</string>
+    <string name="shidu">相对湿度</string>
+    <string name="shidulevle">88%</string>
+    <string name="body">体感温度</string>
+    <string name="bodylevle">5°</string>
+    <string name="today">今天</string>
+    <string name="tomorry">明天</string>
+    <string name="aftertomorry">后天</string>
+    <string name="weather">晴</string>
+    <string name="dushucha">32°/20°</string>
+    <string name="zhiliang">空气质量  |</string>
+    <string name="wuran">严重污染</string>
+    <string name="fabu">08:00发布</string>
+    <string name="locationweather">/晴</string>
+    <string name="zhishu">2</string>
+    <string name="zhiliangzhishu">空气质量指数</string>
+    <string name="PM2.5">103</string>
+    <string name="PM2.5zhishu">PM2.5指数</string>
+    <string name="yubao">今后三天预报:</string>
+    <string name="test">%1$s°</string>
+    
+</resources>

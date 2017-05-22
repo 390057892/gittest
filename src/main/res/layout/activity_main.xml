@@ -1,0 +1,538 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipToPadding="true"
+    android:fitsSystemWindows="true"
+    tools:context="com.example.weather.MainActivity">
+
+    <android.support.design.widget.FloatingActionButton xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/location"
+        app:elevation="8dp"
+        app:pressedTranslationZ="12dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="16dp"
+        />
+    <ProgressBar
+        android:id="@+id/pro"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:visibility="gone"
+
+        />
+    <TextView
+        android:id="@+id/load"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="   加载中...."
+        android:layout_below="@+id/pro"
+        android:layout_centerHorizontal="true"
+        android:textSize="20dp"
+        android:textColor="@color/colorAccent"
+        android:visibility="gone"
+        />
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/SR"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+
+    <ScrollView
+        android:id="@+id/Scrol"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical"
+        >
+
+
+        <LinearLayout
+            android:id="@+id/empt"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:background="@color/colorblue"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/dushu"
+                    android:layout_width="100dp"
+                    android:layout_height="75dp"
+                    android:gravity="center"
+                    android:text="@string/dushu"
+                    android:textColor="@color/colorwrite"
+                    android:textSize="@dimen/activity_main_dushu" />
+
+
+                <LinearLayout
+                    android:layout_width="100dp"
+                    android:layout_height="120dp"
+                    android:orientation="horizontal">
+
+
+                    <TextView
+                        android:id="@+id/location"
+                        android:layout_width="50dp"
+                        android:layout_height="120dp"
+                        android:gravity="right"
+                        android:text="@string/location"
+                        android:textColor="@color/colorwrite"
+                        android:textSize="@dimen/activity_main_location" />
+
+                    <TextView
+                        android:id="@+id/locationweahter"
+                        android:layout_width="50dp"
+                        android:layout_height="120dp"
+                        android:gravity="center_horizontal"
+                        android:text="@string/locationweather"
+                        android:textColor="@color/colorwrite"
+                        android:textSize="@dimen/activity_main_location" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:layout_gravity="bottom"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/wind"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center|bottom"
+                            android:text="@string/wind"
+                            android:layout_marginTop="50dp"
+
+                            android:textColor="@color/colorwrite"
+                            android:textSize="@dimen/activity_main_wind" />
+
+                        <TextView
+                            android:id="@+id/windLevle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="@string/windlevel"
+                            android:textColor="@color/colorwrite"
+                            android:textSize="@dimen/activity_main_windlevle" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="1dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="bottom"
+                        android:layout_marginBottom="10dp"
+                        android:background="@color/colorwrite">
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center|bottom"
+                            android:text="@string/shidu"
+                            android:layout_marginTop="50dp"
+                            android:textColor="@color/colorwrite"
+                            android:textSize="@dimen/activity_main_wind" />
+
+                        <TextView
+                            android:id="@+id/shidu"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="@string/shidulevle"
+                            android:textColor="@color/colorwrite"
+                            android:textSize="@dimen/activity_main_windlevle" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="1dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="bottom"
+                        android:layout_marginBottom="10dp"
+                        android:background="@color/colorwrite">
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center|bottom"
+                            android:text="@string/body"
+                            android:layout_marginTop="50dp"
+                            android:textColor="@color/colorwrite"
+                            android:textSize="@dimen/activity_main_wind" />
+
+                        <TextView
+                            android:id="@+id/body"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="@string/bodylevle"
+                            android:textColor="@color/colorwrite"
+                            android:textSize="@dimen/activity_main_windlevle" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+
+                android:background="@color/colorgray">
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="@string/yubao"
+                android:textColor="@color/colorblank" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="20dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal|left"
+                        android:text="@string/today"
+                        android:textColor="@color/colorblank"
+                        android:textSize="@dimen/activity_main_day" />
+
+
+                    <ImageView
+                        android:id="@+id/TodayImg"
+                        android:layout_width="50dp"
+                        android:layout_height="60dp"
+                        android:layout_weight="0"
+                        android:layout_marginLeft="20dp"
+                        android:src="@drawable/a999" />
+
+
+                    <TextView
+                        android:id="@+id/TodayTxt"
+                        android:layout_width="30dp"
+                        android:layout_height="20dp"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal|left"
+                        android:text="@string/weather"
+                        android:textSize="@dimen/activity_main_day" />
+
+
+                    <TextView
+                        android:id="@+id/todaytmpcha"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="@string/dushucha"
+                        android:textSize="@dimen/activity_main_windlevle" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/colorgray">
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:orientation="horizontal">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="20dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal|left"
+                        android:text="@string/tomorry"
+                        android:textColor="@color/colorblank"
+                        android:textSize="@dimen/activity_main_day" />
+
+                    <ImageView
+                        android:id="@+id/TomorrowImg"
+                        android:layout_width="50dp"
+                        android:layout_height="60dp"
+                        android:layout_weight="0"
+                        android:layout_marginLeft="20dp"
+                        android:src="@drawable/a999" />
+
+
+                    <TextView
+                        android:id="@+id/TomorrowTxt"
+                        android:layout_width="30dp"
+                        android:layout_height="20dp"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal|left"
+                        android:text="多云"
+                        android:textSize="@dimen/activity_main_day" />
+
+
+                    <TextView
+                        android:id="@+id/tomorrowtmpcha"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="@string/dushucha"
+                        android:textSize="@dimen/activity_main_windlevle" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/colorgray">
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:orientation="horizontal">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="20dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal|left"
+                        android:text="@string/aftertomorry"
+                        android:textColor="@color/colorblank"
+                        android:textSize="@dimen/activity_main_day" />
+
+                    <ImageView
+                        android:id="@+id/AfterDayImg"
+                        android:layout_width="50dp"
+                        android:layout_height="60dp"
+                        android:layout_weight="0"
+                        android:layout_marginLeft="20dp"
+                        android:src="@drawable/a999" />
+
+
+                    <TextView
+                        android:id="@+id/AfterDayTxt"
+                        android:layout_width="30dp"
+                        android:layout_height="20dp"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal|left"
+                        android:text="雨夹雪"
+                        android:textSize="@dimen/activity_main_day" />
+
+
+                    <TextView
+                        android:id="@+id/afterdaytmpcha"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="@string/dushucha"
+                        android:textSize="@dimen/activity_main_windlevle" />
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+
+                android:background="@color/colorgrayy">
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="@string/zhiliang"
+                    android:textColor="@color/colorblank"
+                    android:textSize="@dimen/activity_main_day" />
+
+                <TextView
+                    android:id="@+id/wuran"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="@string/wuran" />
+
+                <TextView
+                    android:id="@+id/fabu"
+                    android:layout_width="150dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical|right"
+                    android:text="@string/fabu"
+                    android:textSize="@dimen/activity_main_fabu" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/colorgray">
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="110dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/aqi"
+                        android:layout_width="match_parent"
+                        android:layout_height="90dp"
+                        android:gravity="center"
+                        android:text="@string/zhishu"
+                        android:textColor="@color/colorred"
+                        android:textSize="@dimen/activity_main_zhilian" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="20dp"
+                        android:gravity="center"
+                        android:text="@string/zhiliangzhishu"
+                        android:textColor="@color/colorblank"
+                        android:textSize="@dimen/activity_main_day" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/PM25"
+                        android:layout_width="match_parent"
+                        android:layout_height="90dp"
+                        android:gravity="center"
+                        android:text="@string/PM2.5"
+                        android:textColor="@color/colorgreen"
+                        android:textSize="@dimen/activity_main_zhilian" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="20dp"
+                        android:gravity="center"
+                        android:text="@string/PM2.5zhishu"
+                        android:textColor="@color/colorblank"
+                        android:textSize="@dimen/activity_main_day" />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/addview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                >
+
+
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+</RelativeLayout>
